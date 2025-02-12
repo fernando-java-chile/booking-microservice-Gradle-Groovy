@@ -6,6 +6,7 @@ plugins {
 
 group = 'com.ImplementandoDiscoveryService'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'  // Usa Java 17 o superior
 
 java {
 	toolchain {
@@ -32,6 +33,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.0"  // ✅ BOM de Spring Cloud 2023
+	}
 }
 
 tasks.named('test') {
