@@ -1,12 +1,12 @@
 plugins {
 	id 'groovy'
-	id 'org.springframework.boot' version '3.4.2'
+	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.ImplementandoDiscoveryService'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'  // Usa Java 17 o superior
+sourceCompatibility = '21'  // Usa Java 17 o superior
 
 java {
 	toolchain {
@@ -38,11 +38,13 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+	implementation 'org.springframework.amqp:spring-amqp:3.1.2'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 }
 
 dependencyManagement {
 	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.0"  // ✅ BOM de Spring Cloud 2023
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"  // ✅ BOM de Spring Cloud 2023
 	}
 }
 

@@ -20,4 +20,13 @@ class CategoryController {
     String test() {
         testProp
     }
+
+    @Value('${app.TestMessageBroker}')
+    String TestMessageBroker
+
+    @GetMapping("/testbroker")
+    String testBroker() {
+        return "Test Message Broker: ${TestMessageBroker}"
+    }
+
 }
